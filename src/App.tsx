@@ -1,13 +1,16 @@
 import React from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+
+import { HomePage } from './views/components/pages/home';
 
 import './App.sass';
 
 function App() {
   return (
-    <div className="App">
-      Hey!
-    </div>
-  );
+    <Router>
+      <Route exact path='/' component={HomePage}/>
+    </Router>
+  )
 }
 
 export default App;
