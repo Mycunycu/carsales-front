@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
-import { HomePage } from './views/components/pages/home';
+import { HomePage } from './views/pages/home';
 
 import './App.sass';
 

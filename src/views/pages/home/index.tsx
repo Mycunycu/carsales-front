@@ -1,7 +1,7 @@
 import React, { FC, useState } from 'react';
 import { Layout, Menu } from 'antd';
 
-import { Header as HeaderContent } from '../../../common/header';
+import { Header as HeaderContent } from '../../common/header';
 
 import 'antd/dist/antd.css';
 import './index.sass';
