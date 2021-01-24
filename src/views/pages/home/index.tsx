@@ -1,7 +1,8 @@
 import React, { FC, useState } from 'react';
 import { Layout, Menu } from 'antd';
+import { PieChartOutlined, UserOutlined } from '@ant-design/icons';
 
-import { Header as HeaderContent } from '../../common/header';
+import { HeaderContent } from '../../common/header';
 
 import 'antd/dist/antd.css';
 import './index.sass';
@@ -9,36 +10,48 @@ import './index.sass';
 const { Header, Footer, Sider, Content } = Layout;
 
 export const HomePage: FC = () => {
-  const [isCollapsed, toggleCollapsed] = useState(false);
+  const [isCollapsedMenu, toggleCollapsed] = useState(false);
 
   const handleMenuCollapsing = () => {
-    toggleCollapsed(!isCollapsed);
+    toggleCollapsed(!isCollapsedMenu);
   }
 
   return (
-    <Layout>
+    <Layout className='page'>
       <Header>
         <HeaderContent
+          isCollapsedMenu={isCollapsedMenu}
           handleMenuCollapsing={handleMenuCollapsing}
         />
       </Header>
       <Layout>
         <Sider collapsible
           trigger={null}
-          collapsed={isCollapsed}>
+          collapsed={isCollapsedMenu}>
           <Menu mode='inline'>
-            <Menu.Item key='1'>
+            <Menu.Item
+              key='1'
+              icon={<PieChartOutlined />}
+            >
               Item 1
             </Menu.Item>
-            <Menu.Item key='2'>
+            <Menu.Item
+              key='2'
+              icon={<UserOutlined />}
+            >
               Item 2
             </Menu.Item>
-            <Menu.Item key='3'>
+            <Menu.Item
+              key='3'
+              icon={<UserOutlined />}
+            >
               Item 3
             </Menu.Item>
           </Menu>
         </Sider>
-        <Content>Content</Content>
+        <Content>
+          Content
+        </Content>
       </Layout>
       <Footer>Footer</Footer>
     </Layout>
