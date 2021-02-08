@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, useState } from 'react';
 import { Input, Button } from 'antd';
 import Icon, { UserOutlined, EyeTwoTone, EyeInvisibleOutlined } from '@ant-design/icons';
 
@@ -11,6 +11,22 @@ const EnvelopeSvg = () => (
 const EnvelopeIcon = () => <Icon component={EnvelopeSvg} />;
 
 export const RegisterPage: FC = () => {
+  const [userName, setUserName] = useState('');
+  const [userEmail, setUserEmail] = useState('');
+  const [userPassword, setUserPassword] = useState('');
+
+  const onChangeUserName = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setUserName(e.target.value);
+  }
+
+  const onChangeEmail = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setUserEmail(e.target.value);
+  }
+
+  const onChangePassword = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setUserPassword(e.target.value);
+  }
+
   return (
     <div className='registration'>
       <div className='registration-container'>
@@ -21,16 +37,22 @@ export const RegisterPage: FC = () => {
             required
             placeholder="Enter your username"
             prefix={<UserOutlined className="site-form-item-icon" />}
+            value={userName}
+            onChange={onChangeUserName}
           />
           <Input className='registration-input'
             required
             placeholder="Enter your email"
             prefix={<EnvelopeIcon />}
+            value={userEmail}
+            onChange={onChangeEmail}
           />
           <Input.Password className='registration-input'
             required
             placeholder="input password"
             iconRender={visible => (visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />)}
+            value={userPassword}
+            onChange={onChangePassword}
           />
           <Button className='registration-submit'
             type='primary'
